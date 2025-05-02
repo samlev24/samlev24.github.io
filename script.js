@@ -26,11 +26,11 @@ toggleButton.addEventListener('click', () => {
 });
 
 // Typewriter Effect
+// Typewriter Effect (small text)
 const typewriterText = [
-    "Hi, I'm Sam.",
-    "Cybersecurity Enthusiast.",
-    "Lifelong Learner.",
-    "Creative Problem Solver."
+    "Passionate about Cybersecurity",
+    "Creative Problem Solver",
+    "Lifelong Learner"
 ];
 
 let currentTextIndex = 0;
@@ -41,9 +41,9 @@ function type() {
     if (currentCharIndex < typewriterText[currentTextIndex].length) {
         typewriterElement.textContent += typewriterText[currentTextIndex].charAt(currentCharIndex);
         currentCharIndex++;
-        setTimeout(type, 100); // typing speed (lower = faster)
+        setTimeout(type, 100);
     } else {
-        setTimeout(erase, 2000); // pause after full text
+        setTimeout(erase, 2000);
     }
 }
 
@@ -51,12 +51,13 @@ function erase() {
     if (currentCharIndex > 0) {
         typewriterElement.textContent = typewriterText[currentTextIndex].substring(0, currentCharIndex - 1);
         currentCharIndex--;
-        setTimeout(erase, 50); // deleting speed (lower = faster)
+        setTimeout(erase, 50);
     } else {
         currentTextIndex = (currentTextIndex + 1) % typewriterText.length;
         setTimeout(type, 500);
     }
 }
+
 
 // Start typing when page loads
 document.addEventListener("DOMContentLoaded", type);

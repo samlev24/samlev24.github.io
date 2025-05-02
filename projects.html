@@ -8,39 +8,47 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">Sam Lev</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="resume.html">Resume</a></li>
-        </ul>
-        <button id="toggle-dark-mode">🌙</button>
-    </nav>
-    
+<nav class="navbar">
+    <div class="logo">Sam Lev</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+    </ul>
+    <button id="toggle-dark-mode">🌙</button>
+</nav>
 
-    <section class="section fade-in">
-        <h2>My Projects</h2>
+<section class="section fade-in">
+    <h2>My Projects</h2>
 
-        <div class="project-list">
-            <div class="project-card">
-                <h3>Buffer Overflow Exploitation</h3>
-                <p>Built an exploit against a vulnerable Linux application, achieving shell access by overwriting EIP.</p>
-            </div>
-            <div class="project-card">
-                <h3>Linux Firewall with pfSense</h3>
-                <p>Deployed a firewall solution with VirtualBox, using Snort for threat detection and traffic control.</p>
-            </div>
-            <div class="project-card">
-                <h3>Startup Company Web App</h3>
-                <p>Led a SCRUM team to deploy a Django app with AWS and Heroku integrations.</p>
-            </div>
+    <div class="project-list">
+        <div class="project-card">
+            <h3>Buffer Overflow Exploitation</h3>
+            <p>Developed a custom exploit for a vulnerable Linux application by manipulating stack memory and bypassing ASLR protections. Demonstrated shell access via NOP sled and custom payloads.</p>
         </div>
-    </section>
 
-    <footer class="footer">
-        <p>&copy; 2025 Sam Lev. All rights reserved.</p>
-    </footer>
+        <div class="project-card">
+            <h3>Linux Firewall Implementation with pfSense</h3>
+            <p>Designed and deployed a secure network using pfSense, VirtualBox VMs, and Snort intrusion detection to control and monitor traffic effectively in a Linux environment.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Startup Company Django Web App</h3>
+            <p>Led a cross-functional SCRUM team to design and deploy a Django web app hosted on Heroku with a secure PostgreSQL AWS RDS database backend and API integrations.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>MyFitPlate Swift App UI</h3>
+            <p>Contributed to the front-end development of a Swift-based mobile health app, refining screens to align with UX design principles and collaborating with senior engineers in Agile workflows.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2025 Sam Lev. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
