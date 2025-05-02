@@ -108,3 +108,49 @@ body {
     color: #ecf0f1;
     margin-top: 4rem;
 }
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode .navbar {
+    background-color: #1f1f1f;
+}
+
+.dark-mode .nav-links a {
+    color: #e0e0e0;
+}
+
+.dark-mode .nav-links a:hover {
+    color: #90caf9;
+}
+
+.dark-mode .hero {
+    background: linear-gradient(135deg, #232526, #414345);
+    color: #e0e0e0;
+}
+
+.dark-mode .project-card {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+#toggle-dark-mode {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    margin-left: 20px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
