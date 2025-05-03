@@ -1,4 +1,4 @@
-// Simple Fade-In Animations
+// Fade-in Effect
 document.addEventListener("DOMContentLoaded", () => {
     const faders = document.querySelectorAll('.fade-in');
     faders.forEach(element => {
@@ -17,16 +17,14 @@ const toggleButton = document.getElementById('toggle-dark-mode');
 toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 
-    // Change button icon
     if (document.body.classList.contains('dark-mode')) {
-        toggleButton.textContent = "☀️"; // Light mode
+        toggleButton.textContent = "☀️"; // Switch to Light Mode icon
     } else {
-        toggleButton.textContent = "🌙"; // Dark mode
+        toggleButton.textContent = "🌙"; // Switch to Dark Mode icon
     }
 });
 
-// Typewriter Effect
-// Typewriter Effect (small text)
+// Typewriter Effect (for subtitle)
 const typewriterText = [
     "Passionate about Cybersecurity",
     "Creative Problem Solver",
@@ -58,7 +56,4 @@ function erase() {
     }
 }
 
-
-// Start typing when page loads
 document.addEventListener("DOMContentLoaded", type);
-
