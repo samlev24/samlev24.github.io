@@ -29,6 +29,12 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    display: flex; /* Added for li > a spacing if ul is used directly */
+    gap: 1.5rem; /* Added for spacing between nav links */
+}
+
+.nav-links li { /* Added to ensure list items are part of flex layout */
+    display: inline-block; /* Or remove if using gap on .nav-links directly */
 }
 
 .nav-links a {
@@ -94,7 +100,8 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 70vh;
+    min-height: 300px; /* Changed from height: 70vh */
+    height: auto; /* Added */
     background: linear-gradient(135deg, #74ebd5, #acb6e5);
     display: flex;
     flex-direction: column;
@@ -112,6 +119,23 @@ body {
 
 .hero p {
     font-size: 1.5rem;
+    margin-bottom: 2rem; /* Add some space above the button */
+}
+
+.cta-button {
+    display: inline-block; /* To allow padding and centering */
+    background-color: #1abc9c;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #16a085; /* Slightly darker shade for hover */
 }
 
 /* Section Styles */
@@ -153,6 +177,183 @@ body {
 .skill p {
     margin-top: 0.5rem;
     font-weight: bold;
+}
+
+/* Featured Projects Section */
+#featured-projects {
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.projects-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem; /* Matches .skills-grid */
+}
+
+.project-preview-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-preview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.project-preview-card h3 {
+    margin-top: 0; /* Remove default margin */
+    margin-bottom: 0.75rem;
+    color: #333; /* Match general text color */
+}
+
+.project-preview-card p {
+    line-height: 1.6;
+    color: #555; /* Slightly lighter than h3 */
+    margin-bottom: 1rem;
+}
+
+.details-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.details-link:hover {
+    text-decoration: underline;
+}
+
+/* Dark Mode for Featured Projects */
+.dark-mode .project-preview-card {
+    background-color: #2d2d2d; /* Darker card background */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Adjusted shadow for dark bg */
+}
+
+.dark-mode .project-preview-card:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* Adjusted hover shadow */
+}
+
+.dark-mode .project-preview-card h3 {
+    color: #e0e0e0; /* Lighter text for dark mode */
+}
+
+.dark-mode .project-preview-card p {
+    color: #b0b0b0; /* Lighter paragraph text for dark mode */
+}
+
+.dark-mode .details-link { /* This style can be shared with post links */
+    color: #29b6f6; /* Brighter link color for dark mode */
+}
+
+/* Latest Posts Section */
+#latest-posts { /* Similar to #featured-projects */
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.posts-preview-grid { /* Similar to .projects-preview-grid */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.post-preview-card { /* Similar to .project-preview-card */
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-preview-card:hover { /* Similar to .project-preview-card:hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.post-preview-card h3 { /* Similar to .project-preview-card h3 */
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+.post-preview-card p { /* Similar to .project-preview-card p */
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+/* Dark Mode for Latest Posts */
+.dark-mode .post-preview-card {
+    background-color: #2d2d2d; /* Consistent with project cards */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.dark-mode .post-preview-card:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.dark-mode .post-preview-card h3 {
+    color: #e0e0e0;
+}
+
+.dark-mode .post-preview-card p {
+    color: #b0b0b0;
+}
+/* .details-link dark mode styling is already covered above */
+
+/* Contact Me Section */
+#contact {
+    text-align: center;
+}
+
+#contact p {
+    line-height: 1.6;
+    color: #555; /* Consistent with other paragraph text */
+    margin-bottom: 1.5rem;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap; /* Ensure links wrap on smaller screens */
+}
+
+.contact-links a {
+    color: #1abc9c; /* Theme accent color */
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: #16a085; /* Darker shade of accent color */
+    text-decoration: underline;
+}
+
+/* Dark Mode for Contact Me Section */
+.dark-mode #contact p {
+    color: #b0b0b0; /* Lighter paragraph text for dark mode */
+}
+
+.dark-mode .contact-links a {
+    color: #29b6f6; /* Brighter link color for dark mode, consistent with .details-link */
+}
+
+.dark-mode .contact-links a:hover {
+    color: #81d4fa; /* Lighter hover for dark mode links */
 }
 
 /* Projects */
@@ -230,4 +431,102 @@ body {
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem; /* Adjusted padding for smaller screens */
+    }
+
+    .nav-links {
+        position: static;
+        transform: none;
+        left: auto; /* Reset left property */
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 1rem; /* Add space below logo */
+        gap: 0; /* Reset gap for vertical layout */
+    }
+
+    .nav-links li { /* If using li elements */
+        margin: 0.5rem 0;
+        width: 100%; /* Make links take full width for easier clicking */
+    }
+    
+    .nav-links a {
+        display: block; /* Make link area fill the li */
+        width: 100%;
+        padding: 0.5rem 0; /* Add some padding for touch targets */
+    }
+    
+    .nav-links a::after { /* Adjust underline for stacked links */
+        bottom: 0; 
+    }
+
+    #toggle-dark-mode {
+        position: static;
+        margin-top: 1rem;
+        align-self: flex-start; /* Align with other stacked items */
+    }
+
+    .hero {
+        padding: 3rem 5%; /* Adjusted hero padding */
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .section {
+        padding: 3rem 1rem;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+    
+    #contact {
+        text-align: left; /* Align contact text to left on smaller screens */
+    }
+    
+    .contact-links {
+        justify-content: flex-start; /* Align links to left */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem; /* Further reduce logo size */
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Ensure project/post cards stack nicely if not already */
+    .projects-preview-grid,
+    .posts-preview-grid {
+        grid-template-columns: 1fr; /* Single column */
+    }
 }
