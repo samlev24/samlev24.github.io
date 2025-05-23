@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 /* General Styles */
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
+    font-family: 'Inter', sans-serif; /* Updated font */
+    background-color: #f0f0f0; /* Updated background color */
+    color: #333333; /* Updated text color */
     scroll-behavior: smooth;
 }
 
@@ -14,15 +16,15 @@ body {
     position: relative;      /* for absolute children */
     /* remove justify-content: space-between; */
     padding: 1rem 2rem;
-    background-color: #2c3e50;
+    background-color: #202020; /* Updated navbar background */
     top: 0;
     z-index: 1000;           /* keep sticky */
 }
 
 .logo {
-    color: #ecf0f1;
+    color: #ffffff; /* Updated logo color */
     font-size: 1.8rem;
-    font-weight: bold;
+    font-weight: 700; /* Using imported bold weight */
 }
 
 .nav-links {
@@ -39,10 +41,14 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #ecf0f1;
-    font-size: 1.2rem;
+    color: #ffffff; /* Updated nav link color */
+    font-size: 1.2rem; /* Consider if this needs adjustment with new font */
     position: relative;
     transition: color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif; /* Ensure headings use Inter */
 }
 
 /* Fancy hover effect */
@@ -53,7 +59,7 @@ body {
     height: 2px;
     bottom: -4px;
     left: 0;
-    background-color: #1abc9c;
+    background-color: #007bff; /* Updated accent color */
     transition: width 0.3s;
 }
 
@@ -62,17 +68,17 @@ body {
 }
 
 .nav-links a:hover {
-    color: #1abc9c;
+    color: #007bff; /* Updated accent color */
 }
 
 /* Dark Mode Adjustments */
 .dark-mode {
-    background-color: #252020;
+    background-color: #121212; /* Dark mode background */
     color: #e0e0e0;
 }
 
 .dark-mode .navbar {
-    background-color: #1f1f1f;
+    background-color: #1f1f1f; /* Slightly different dark for navbar */
 }
 
 .dark-mode .nav-links a {
@@ -80,16 +86,17 @@ body {
 }
 
 .dark-mode .nav-links a:hover {
-    color: #90caf9;
+    color: #007bff; /* Consistent accent for dark mode hover */
 }
 
 .dark-mode .hero {
-    background: linear-gradient(135deg, #232526, #414345);
+    background: #1a1a1a; /* Darker hero background for dark mode */
+    color: #f0f0f0; /* Light text for dark mode hero */
 }
 
-.dark-mode .project-card {
-    background-color: #1e1e1e;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+.dark-mode .project-card { /* This might be redundant if .card-inner in dark mode is handled */
+    background-color: #2a2a2a; /* Consistent dark card background */
+    border: 1px solid #444444; /* Consistent border for dark mode cards */
 }
 
 /* Dark mode toggle button */
@@ -102,40 +109,54 @@ body {
 .hero {
     min-height: 300px; /* Changed from height: 70vh */
     height: auto; /* Added */
-    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    background: #007bff; /* Using accent as hero background */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     text-align: left;
     padding: 5rem 10%;
-    color: #2c3e50;
+    color: #ffffff; /* Text on accent background for light mode */
 }
 
+/* Hero section dark mode specific CTA */
+.dark-mode .hero .cta-button {
+    background-color: #007bff; /* Accent color for dark mode CTA background */
+    color: #ffffff; /* White text for dark mode CTA */
+}
+
+.dark-mode .hero .cta-button:hover {
+    background-color: #0056b3; /* Darker accent for hover */
+    color: #eeeeee;
+}
+
+
 .hero h1 {
-    font-size: 2.8rem;
+    font-size: 2.8rem; /* Existing size, check readability */
     margin-bottom: 1rem;
+    font-weight: 700; /* Ensure bold for hero title */
 }
 
 .hero p {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Existing size, check readability */
     margin-bottom: 2rem; /* Add some space above the button */
 }
 
 .cta-button {
     display: inline-block; /* To allow padding and centering */
-    background-color: #1abc9c;
-    color: white;
+    background-color: #ffffff; /* Button background on accent hero (light mode) */
+    color: #007bff; /* Button text color (light mode) */
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 5px;
     font-size: 1.1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    font-weight: 700; /* Ensure bold for CTA */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #16a085; /* Slightly darker shade for hover */
+    background-color: #e0e0e0; /* Slightly darker shade for hover (light mode) */
+    color: #0056b3; /* Darker accent for text hover (light mode) */
 }
 
 /* Section Styles */
@@ -146,9 +167,10 @@ body {
 }
 
 .section h2 {
-    font-size: 2rem;
+    font-size: 2rem; /* Existing size, check readability */
     margin-bottom: 1.5rem;
-    color: #34495e;
+    color: #333333; /* Updated section header color */
+    font-weight: 700; /* Ensure bold for section titles */
 }
 
 /* Skills Grid */
@@ -176,7 +198,7 @@ body {
 
 .skill p {
     margin-top: 0.5rem;
-    font-weight: bold;
+    font-weight: 700; /* Use numeric weight */
 }
 
 /* Featured Projects Section */
@@ -197,33 +219,65 @@ body {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #dddddd; /* Subtle border */
+    position: relative; /* For pseudo-elements */
+    overflow: hidden; /* To contain glow if it extends beyond borders */
+    transition: border-color 0.3s ease;
+}
+
+.project-preview-card::before,
+.project-preview-card::after {
+    content: '';
+    position: absolute;
+    width: 2px; /* Lightsaber thickness */
+    height: 0; /* Initial height */
+    background-color: #007bff; /* Accent color */
+    box-shadow: 0 0 5px #007bff, 0 0 8px #007bff; /* Glow effect */
+    opacity: 0;
+    transition: height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.project-preview-card::before {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.project-preview-card::after {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
 }
 
 .project-preview-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    border-color: #dddddd; /* Keep original border color or make transparent */
+}
+
+.project-preview-card:hover::before,
+.project-preview-card:hover::after {
+    height: 100%;
+    opacity: 1;
 }
 
 .project-preview-card h3 {
     margin-top: 0; /* Remove default margin */
     margin-bottom: 0.75rem;
-    color: #333; /* Match general text color */
+    color: #333333; /* Match general text color */
+    font-weight: 700; /* Ensure bold for card titles */
 }
 
 .project-preview-card p {
     line-height: 1.6;
-    color: #555; /* Slightly lighter than h3 */
+    color: #555555; /* Slightly lighter than h3 */
     margin-bottom: 1rem;
 }
 
 .details-link {
     display: inline-block;
     margin-top: 1rem;
-    color: #1abc9c;
+    color: #007bff; /* Updated accent color */
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700; /* Use numeric weight */
 }
 
 .details-link:hover {
@@ -232,13 +286,15 @@ body {
 
 /* Dark Mode for Featured Projects */
 .dark-mode .project-preview-card {
-    background-color: #2d2d2d; /* Darker card background */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Adjusted shadow for dark bg */
+    background-color: #2a2a2a; /* Darker card background */
+    border: 1px solid #444444; /* Subtle border for dark mode */
 }
 
 .dark-mode .project-preview-card:hover {
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* Adjusted hover shadow */
+    border-color: #444444; /* Keep original border color or make transparent */
 }
+
+/* Pseudo-elements will inherit accent color, which is fine for dark mode glow */
 
 .dark-mode .project-preview-card h3 {
     color: #e0e0e0; /* Lighter text for dark mode */
@@ -249,7 +305,11 @@ body {
 }
 
 .dark-mode .details-link { /* This style can be shared with post links */
-    color: #29b6f6; /* Brighter link color for dark mode */
+    color: #007bff; /* Consistent accent for dark mode */
+}
+
+.dark-mode .details-link:hover {
+    color: #4dabf7; /* Lighter accent for hover in dark mode */
 }
 
 /* Latest Posts Section */
@@ -270,36 +330,70 @@ body {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #dddddd; /* Subtle border */
+    position: relative; /* For pseudo-elements */
+    overflow: hidden; /* To contain glow */
+    transition: border-color 0.3s ease;
+}
+
+.post-preview-card::before,
+.post-preview-card::after {
+    content: '';
+    position: absolute;
+    width: 2px; /* Lightsaber thickness */
+    height: 0; /* Initial height */
+    background-color: #007bff; /* Accent color */
+    box-shadow: 0 0 5px #007bff, 0 0 8px #007bff; /* Glow effect */
+    opacity: 0;
+    transition: height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.post-preview-card::before {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.post-preview-card::after {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
 }
 
 .post-preview-card:hover { /* Similar to .project-preview-card:hover */
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    border-color: #dddddd; /* Keep original border color or make transparent */
+}
+
+.post-preview-card:hover::before,
+.post-preview-card:hover::after {
+    height: 100%;
+    opacity: 1;
 }
 
 .post-preview-card h3 { /* Similar to .project-preview-card h3 */
     margin-top: 0;
     margin-bottom: 0.75rem;
-    color: #333;
+    color: #333333;
+    font-weight: 700; /* Ensure bold for card titles */
 }
 
 .post-preview-card p { /* Similar to .project-preview-card p */
     line-height: 1.6;
-    color: #555;
+    color: #555555;
     margin-bottom: 1rem;
 }
 
 /* Dark Mode for Latest Posts */
 .dark-mode .post-preview-card {
-    background-color: #2d2d2d; /* Consistent with project cards */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background-color: #2a2a2a; /* Consistent with project cards */
+    border: 1px solid #444444; /* Subtle border for dark mode */
 }
 
 .dark-mode .post-preview-card:hover {
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    border-color: #444444; /* Keep original border color or make transparent */
 }
+
+/* Pseudo-elements will inherit accent color, which is fine for dark mode glow */
 
 .dark-mode .post-preview-card h3 {
     color: #e0e0e0;
@@ -317,7 +411,7 @@ body {
 
 #contact p {
     line-height: 1.6;
-    color: #555; /* Consistent with other paragraph text */
+    color: #555555; /* Consistent with other paragraph text */
     margin-bottom: 1.5rem;
 }
 
@@ -331,15 +425,15 @@ body {
 }
 
 .contact-links a {
-    color: #1abc9c; /* Theme accent color */
+    color: #007bff; /* Theme accent color */
     text-decoration: none;
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: 700; /* Use numeric weight */
     transition: color 0.3s ease;
 }
 
 .contact-links a:hover {
-    color: #16a085; /* Darker shade of accent color */
+    color: #0056b3; /* Darker shade of accent color */
     text-decoration: underline;
 }
 
@@ -349,11 +443,12 @@ body {
 }
 
 .dark-mode .contact-links a {
-    color: #29b6f6; /* Brighter link color for dark mode, consistent with .details-link */
+    color: #007bff; /* Consistent accent for dark mode */
 }
 
 .dark-mode .contact-links a:hover {
-    color: #81d4fa; /* Lighter hover for dark mode links */
+    color: #4dabf7; /* Lighter hover for dark mode links */
+    text-decoration: underline;
 }
 
 /* Projects */
@@ -394,12 +489,12 @@ body {
 }
 
 .card-front {
-    background-color: white;
-    color: black;
+    background-color: #ffffff; /* Card front light */
+    color: #333333; /* Card front text */
 }
 
 .card-back {
-    background-color: #1abc9c;
+    background-color: #007bff; /* Card back accent */
     color: white;
     transform: rotateY(180deg);
 }
@@ -412,18 +507,18 @@ body {
 }
 
 .blog-post {
-    background: white;
+    background: #ffffff; /* Blog post light background */
     padding: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dddddd; /* Consistent border for light mode cards */
 }
 
 /* Footer */
 .footer {
     text-align: center;
     padding: 2rem;
-    background-color: #2c3e50;
-    color: #ecf0f1;
+    background-color: #202020; /* Dark footer */
+    color: #ffffff; /* Light text on dark footer */
     margin-top: 4rem;
 }
 
@@ -432,6 +527,44 @@ body {
     opacity: 0;
     transform: translateY(20px);
 }
+
+/* Dark Mode Adjustments for general text and backgrounds */
+.dark-mode .section h2 {
+    color: #e0e0e0;
+}
+
+.dark-mode .project-preview-card, .dark-mode .post-preview-card {
+    background-color: #2a2a2a; /* Standard dark card background */
+}
+
+.dark-mode .project-preview-card h3, .dark-mode .post-preview-card h3 {
+    color: #f5f5f5; /* Slightly brighter heading for cards in dark mode */
+}
+
+.dark-mode .project-preview-card p, .dark-mode .post-preview-card p {
+    color: #c0c0c0; /* Lighter paragraph for cards in dark mode */
+}
+
+.dark-mode .card-front {
+    background-color: #2a2a2a; /* Dark card front */
+    color: #e0e0e0; /* Light text on dark card front */
+}
+.dark-mode .card-back { /* Ensure dark mode card-back is styled if different from light */
+    background-color: #007bff; /* Accent color */
+    color: #ffffff; /* White text */
+}
+
+.dark-mode .blog-post {
+    background: #2a2a2a; /* Dark blog post background */
+    color: #e0e0e0; /* Light text for blog post in dark mode */
+    border: 1px solid #444444; /* Consistent border for dark mode cards */
+}
+
+.dark-mode .footer {
+    background-color: #1a1a1a; /* Consistent dark background */
+    color: #f0f0f0; /* Consistent light text */
+}
+
 
 /* Responsive Media Queries */
 @media (max-width: 768px) {
