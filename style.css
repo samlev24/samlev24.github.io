@@ -90,8 +90,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dark-mode .hero {
-    background: #1a1a1a; /* Darker hero background for dark mode */
-    color: #f0f0f0; /* Light text for dark mode hero */
+    background: linear-gradient(135deg, #2a2a2a, #202020); /* Subtle dark gray gradient */
+    color: #f0f0f0; /* Light text for dark mode hero - should still be good */
 }
 
 .dark-mode .project-card { /* This might be redundant if .card-inner in dark mode is handled */
@@ -109,14 +109,14 @@ h1, h2, h3, h4, h5, h6 {
 .hero {
     min-height: 300px; /* Changed from height: 70vh */
     height: auto; /* Added */
-    background: #007bff; /* Using accent as hero background */
+    background: linear-gradient(135deg, #f0f0f0, #dcdcdc); /* Subtle light gray gradient */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     text-align: left;
     padding: 5rem 10%;
-    color: #ffffff; /* Text on accent background for light mode */
+    color: #333333; /* Updated text color for light gray gradient */
 }
 
 /* Hero section dark mode specific CTA */
@@ -526,6 +526,12 @@ h1, h2, h3, h4, h5, h6 {
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Ensure transition is here */
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Dark Mode Adjustments for general text and backgrounds */
