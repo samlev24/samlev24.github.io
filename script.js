@@ -1,59 +1,71 @@
-// Fade-in Effect
-document.addEventListener("DOMContentLoaded", () => {
-    const faders = document.querySelectorAll('.fade-in');
-    faders.forEach(element => {
-        element.style.opacity = 0;
-        element.style.transform = "translateY(20px)";
-        setTimeout(() => {
-            element.style.transition = "all 1s ease-out";
-            element.style.opacity = 1;
-            element.style.transform = "translateY(0)";
-        }, 200);
+document.addEventListener('DOMContentLoaded', () => {
+    // Dark Mode Toggle
+    const toggleDarkModeButton = document.getElementById('toggle-dark-mode');
+    if (toggleDarkModeButton) {
+        toggleDarkModeButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            // Optional: Save preference to localStorage
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                toggleDarkModeButton.textContent = '☀️'; // Sun icon for light mode
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleDarkModeButton.textContent = '🌙'; // Moon icon for dark mode
+            }
+        });
+    }
+
+    // Apply saved theme on load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        if (toggleDarkModeButton) {
+            toggleDarkModeButton.textContent = '☀️';
+        }
+    } else {
+        // Default to light mode if no theme saved or saved theme is light
+        if (toggleDarkModeButton) {
+            toggleDarkModeButton.textContent = '🌙';
+        }
+    }
+
+    // Typewriter effect for the hero section
+    const typewriterText = "Cybersecurity Student | Tech Enthusiast | Problem Solver";
+    const typewriterElement = document.getElementById('typewriter');
+    let charIndex = 0;
+
+    function type() {
+        if (typewriterElement && charIndex < typewriterText.length) {
+            typewriterElement.textContent += typewriterText.charAt(charIndex);
+            charIndex++;
+            setTimeout(type, 100); // Adjust typing speed here
+        }
+    }
+    if (typewriterElement) { // Only run if the element exists
+        type();
+    }
+
+    // Scroll Animations with Intersection Observer
+    const animatedSections = document.querySelectorAll('.fade-in');
+
+    const observerOptions = {
+        root: null, // relative to document viewport
+        rootMargin: '0px',
+        threshold: 0.1 // trigger when 10% of the element is visible
+    };
+
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Stop observing after animation
+            }
+        });
+    };
+
+    const sectionObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+    animatedSections.forEach(section => {
+        sectionObserver.observe(section);
     });
 });
-
-// Dark Mode Toggle
-const toggleButton = document.getElementById('toggle-dark-mode');
-toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-
-    if (document.body.classList.contains('dark-mode')) {
-        toggleButton.textContent = "☀️"; // Switch to Light Mode icon
-    } else {
-        toggleButton.textContent = "🌙"; // Switch to Dark Mode icon
-    }
-});
-
-// Typewriter Effect (for subtitle)
-const typewriterText = [
-    "Passionate about Cybersecurity",
-    "Creative Problem Solver",
-    "Lifelong Learner"
-];
-
-let currentTextIndex = 0;
-let currentCharIndex = 0;
-const typewriterElement = document.getElementById('typewriter');
-
-function type() {
-    if (currentCharIndex < typewriterText[currentTextIndex].length) {
-        typewriterElement.textContent += typewriterText[currentTextIndex].charAt(currentCharIndex);
-        currentCharIndex++;
-        setTimeout(type, 100);
-    } else {
-        setTimeout(erase, 2000);
-    }
-}
-
-function erase() {
-    if (currentCharIndex > 0) {
-        typewriterElement.textContent = typewriterText[currentTextIndex].substring(0, currentCharIndex - 1);
-        currentCharIndex--;
-        setTimeout(erase, 50);
-    } else {
-        currentTextIndex = (currentTextIndex + 1) % typewriterText.length;
-        setTimeout(type, 500);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", type);

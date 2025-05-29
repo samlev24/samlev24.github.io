@@ -174,32 +174,109 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>My Dark Website</h1>
-    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-  </header>
 
-  <div class="side-nav">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </div>
+<nav class="navbar">
+    <div class="logo">Samuel Levshteyn</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <button id="toggle-dark-mode">🌙</button>
+</nav>
 
-  <div class="hero">
-    <h2>Welcome to My Modern Dark Website</h2>
-    <p>Experience a clean, minimalistic, and modern design with smooth transitions and hover effects.</p>
-    <a href="#about">Learn More</a>
-  </div>
+<section id="home" class="hero fade-in">
+    <h1>Hi, I'm Sam.</h1>
+    <p><span id="typewriter"></span></p>
+    <a href="projects.html" class="cta-button">View My Work</a>
+</section>
 
   <section id="about">
     <h2>About Us</h2>
     <p>We are passionate about creating beautiful and functional websites that leave a lasting impression.</p>
   </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <p>We offer web design, development, and SEO optimization to help your business grow.</p>
-  </section>
+<section id="skills" class="section fade-in">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+        <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+            <p>Python</p>
+        </div>
+        <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+            <p>Java</p>
+        </div>
+        <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
+            <p>HTML</p>
+        </div>
+        <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+            <p>CSS</p>
+        </div>
+        <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+            <p>JavaScript</p>
+        </div>
+        <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
+            <p>Linux</p>
+        </div>
+        <div class="skill">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+            <p>GitHub</p>
+        </div>
+    </div>
+</section>
+
+<section id="featured-projects" class="section fade-in">
+    <h2>Featured Projects</h2>
+    <div class="projects-preview-grid">
+        <div class="project-preview-card">
+            <h3>Project Alpha</h3>
+            <p>A short description of Project Alpha highlighting its key features and technologies used.</p>
+            <a href="projects.html" class="details-link">Learn More</a>
+        </div>
+        <div class="project-preview-card">
+            <h3>Project Beta</h3>
+            <p>A short description of Project Beta highlighting its key features and technologies used.</p>
+            <a href="projects.html" class="details-link">Learn More</a>
+        </div>
+        <div class="project-preview-card">
+            <h3>Project Gamma</h3>
+            <p>A short description of Project Gamma highlighting its key features and technologies used.</p>
+            <a href="projects.html" class="details-link">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<section id="latest-posts" class="section fade-in">
+    <h2>Latest Posts</h2>
+    <div class="posts-preview-grid">
+        <div class="post-preview-card">
+            <h3>Understanding XSS Attacks</h3>
+            <p>A quick overview of Cross-Site Scripting vulnerabilities and how to prevent them...</p>
+            <a href="blog.html" class="details-link">Read More</a>
+        </div>
+        <div class="post-preview-card">
+            <h3>My Journey into Cybersecurity</h3>
+            <p>Sharing my experiences and learnings as I delve deeper into the world of cybersecurity...</p>
+            <a href="blog.html" class="details-link">Read More</a>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section fade-in">
+    <h2>Get In Touch</h2>
+    <p>I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out!</p>
+    <div class="contact-links">
+        <a href="mailto:samlevshteyn@gmail.com">samlevshteyn@gmail.com</a>
+        <a href="https://github.com/samlevshteyn" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/samuel-levshteyn" target="_blank">LinkedIn</a>
+    </div>
+</section>
 
   <footer>
     <p>&copy; 2025 My Dark Website. All rights reserved.</p>
