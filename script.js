@@ -17,17 +17,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Apply saved theme on load
     const savedTheme = localStorage.getItem('theme');
+    const bodyEl = document.body;
+    const indexPageFooter = document.querySelector('body > main > footer'); // Specific to index.html structure
+
     if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        if (toggleDarkModeButton) {
-            toggleDarkModeButton.textContent = '☀️';
-        }
+        bodyEl.classList.add('dark-mode');
+        if (toggleDarkModeButton) toggleDarkModeButton.textContent = '☀️';
+        if (indexPageFooter) indexPageFooter.classList.remove('light-mode'); // Dark theme means no light-mode class
     } else {
-        // Default to light mode if no theme saved or saved theme is light
-        if (toggleDarkModeButton) {
-            toggleDarkModeButton.textContent = '🌙';
-        }
+        bodyEl.classList.remove('dark-mode'); // Ensure it's not there if light saved
+        if (toggleDarkModeButton) toggleDarkModeButton.textContent = '🌙';
+        if (indexPageFooter) indexPageFooter.classList.add('light-mode'); // Light theme means add light-mode class
     }
+
+    // Dark Mode Toggle Event Listener Adjustment
+    if (toggleDarkModeButton) {
+        toggleDarkModeButton.addEventListener('click', () => {
+            bodyEl.classList.toggle('dark-mode');
+            const isDarkMode = bodyEl.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            toggleDarkModeButton.textContent = isDarkMode ? '☀️' : '🌙';
+
+            // Specifically toggle 'light-mode' class for index.html's footer
+            if (indexPageFooter) {
+                if (isDarkMode) {
+                    indexPageFooter.classList.remove('light-mode');
+                } else {
+                    indexPageFooter.classList.add('light-mode');
+                }
+            }
+        });
+    }
+
 
     // Typewriter effect for the hero section
     const typewriterText = "Cybersecurity Student | Tech Enthusiast | Problem Solver";
@@ -45,27 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
         type();
     }
 
-    // Scroll Animations with Intersection Observer
-    const animatedSections = document.querySelectorAll('.fade-in');
-
-    const observerOptions = {
-        root: null, // relative to document viewport
-        rootMargin: '0px',
-        threshold: 0.1 // trigger when 10% of the element is visible
-    };
-
-    const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing after animation
-            }
-        });
-    };
-
-    const sectionObserver = new IntersectionObserver(observerCallback, observerOptions);
-
-    animatedSections.forEach(section => {
-        sectionObserver.observe(section);
+    // Typewriter effect for the hero section should be the last part of the existing JS (this comment is now above AOS.init)
+    AOS.init({
+        duration: 800, // values from 0 to 3000, with step 50ms
+        easing: 'ease-in-out', // default easing for AOS animations
+        once: true, // whether animation should happen only once - while scrolling down
     });
 });
