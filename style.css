@@ -89,88 +89,94 @@ h1, h2, h3, h4, h5, h6 {
     color: #007bff; /* Consistent accent for dark mode hover */
 }
 
-.dark-mode .hero {
-    background: linear-gradient(135deg, #2a2a2a, #202020); /* Subtle dark gray gradient */
-    color: #f0f0f0; /* Light text for dark mode hero - should still be good */
+.dark-mode .hero { /* This is for the .hero class used in style.css, not necessarily index.html's hero section if it doesn't have this class */
+    background: linear-gradient(135deg, #2a2a2a, #202020);
+    color: #f0f0f0;
 }
 
-.dark-mode .project-card { /* This might be redundant if .card-inner in dark mode is handled */
-    background-color: #2a2a2a; /* Consistent dark card background */
-    border: 1px solid #444444; /* Consistent border for dark mode cards */
+.dark-mode .project-card { /* This style was for the old project card structure */
+    background-color: #2a2a2a;
+    border: 1px solid #444444;
 }
 
 /* Dark mode toggle button */
 #toggle-dark-mode {
     position: absolute;
     right: 2rem;
+    /* Styles for the button itself, like background, color, border, are in the moved styles under .theme-toggle */
 }
 
-/* Hero Section */
-.hero {
-    min-height: 300px; /* Changed from height: 70vh */
-    height: auto; /* Added */
-    background: linear-gradient(135deg, #f0f0f0, #dcdcdc); /* Subtle light gray gradient */
+/* Hero Section (General - from style.css, conflicts with index.html internal .hero) */
+.hero { /* This is the .hero class from style.css, used by sections other than index.html's main hero */
+    min-height: 300px;
+    height: auto;
+    background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     text-align: left;
     padding: 5rem 10%;
-    color: #333333; /* Updated text color for light gray gradient */
+    color: #333333;
 }
 
-/* Hero section dark mode specific CTA */
-.dark-mode .hero .cta-button {
-    background-color: #007bff; /* Accent color for dark mode CTA background */
-    color: #ffffff; /* White text for dark mode CTA */
+/* Hero section dark mode specific CTA (General - from style.css) */
+.dark-mode .hero .cta-button { /* Applies to .cta-button within a .hero that is also .dark-mode */
+    background-color: #007bff;
+    color: #ffffff;
 }
 
 .dark-mode .hero .cta-button:hover {
-    background-color: #0056b3; /* Darker accent for hover */
+    background-color: #0056b3;
     color: #eeeeee;
 }
 
 
-.hero h1 {
-    font-size: 2.8rem; /* Existing size, check readability */
+.hero h1 { /* General .hero h1 from style.css */
+    font-size: 2.8rem;
     margin-bottom: 1rem;
-    font-weight: 700; /* Ensure bold for hero title */
+    font-weight: 700;
 }
 
-.hero p {
-    font-size: 1.5rem; /* Existing size, check readability */
-    margin-bottom: 2rem; /* Add some space above the button */
+.hero p { /* General .hero p from style.css */
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-.cta-button {
-    display: inline-block; /* To allow padding and centering */
-    background-color: #ffffff; /* Button background on accent hero (light mode) */
-    color: #007bff; /* Button text color (light mode) */
+.cta-button { /* General .cta-button from style.css */
+    display: inline-block;
+    background-color: #ffffff;
+    color: #007bff;
     padding: 12px 25px;
     text-decoration: none;
     border-radius: 5px;
     font-size: 1.1rem;
-    font-weight: 700; /* Ensure bold for CTA */
+    font-weight: 700;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #e0e0e0; /* Slightly darker shade for hover (light mode) */
-    color: #0056b3; /* Darker accent for text hover (light mode) */
+    background-color: #e0e0e0;
+    color: #0056b3;
 }
 
 /* Section Styles */
-.section {
-    padding: 4rem 2rem;
+.section { /* Used by projects, resume, blog pages */
+    padding: 3rem 2rem; /* Reduced top/bottom padding */
     max-width: 1000px;
-    margin: auto;
+    margin: auto; /* Centers content */
 }
 
 .section h2 {
-    font-size: 2rem; /* Existing size, check readability */
+    font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: #333333; /* Updated section header color */
-    font-weight: 700; /* Ensure bold for section titles */
+    color: #333333;
+    font-weight: 700;
+}
+
+/* Resume Page Specific Styles */
+.resume-download-link {
+    margin-bottom: 1.5rem; /* Add space below the download link */
 }
 
 /* Skills Grid */
@@ -202,8 +208,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Featured Projects Section */
-#featured-projects {
-    padding: 4rem 2rem;
+#featured-projects { /* Specific ID styling from style.css */
+    padding: 4rem 2rem; /* This was original, .section class has 3rem 2rem */
     max-width: 1000px;
     margin: auto;
 }
@@ -212,16 +218,16 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-top: 2rem; /* Matches .skills-grid */
+    margin-top: 2rem;
 }
 
 .project-preview-card {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 1.5rem;
-    border: 1px solid #dddddd; /* Subtle border */
-    position: relative; /* For pseudo-elements */
-    overflow: hidden; /* To contain glow if it extends beyond borders */
+    border: 1px solid #dddddd;
+    position: relative;
+    overflow: hidden;
     transition: border-color 0.3s ease;
 }
 
@@ -229,10 +235,10 @@ h1, h2, h3, h4, h5, h6 {
 .project-preview-card::after {
     content: '';
     position: absolute;
-    width: 2px; /* Lightsaber thickness */
-    height: 0; /* Initial height */
-    background-color: #007bff; /* Accent color */
-    box-shadow: 0 0 5px #007bff, 0 0 8px #007bff; /* Glow effect */
+    width: 2px;
+    height: 0;
+    background-color: #007bff;
+    box-shadow: 0 0 5px #007bff, 0 0 8px #007bff;
     opacity: 0;
     transition: height 0.3s ease-out, opacity 0.3s ease-out;
 }
@@ -250,7 +256,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-preview-card:hover {
-    border-color: #dddddd; /* Keep original border color or make transparent */
+    border-color: #dddddd;
 }
 
 .project-preview-card:hover::before,
@@ -260,24 +266,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-preview-card h3 {
-    margin-top: 0; /* Remove default margin */
+    margin-top: 0;
     margin-bottom: 0.75rem;
-    color: #333333; /* Match general text color */
-    font-weight: 700; /* Ensure bold for card titles */
+    color: #333333;
+    font-weight: 700;
 }
 
 .project-preview-card p {
     line-height: 1.6;
-    color: #555555; /* Slightly lighter than h3 */
+    color: #555555;
     margin-bottom: 1rem;
 }
 
 .details-link {
     display: inline-block;
     margin-top: 1rem;
-    color: #007bff; /* Updated accent color */
+    color: #007bff;
     text-decoration: none;
-    font-weight: 700; /* Use numeric weight */
+    font-weight: 700;
 }
 
 .details-link:hover {
@@ -286,53 +292,52 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Dark Mode for Featured Projects */
 .dark-mode .project-preview-card {
-    background-color: #2a2a2a; /* Darker card background */
-    border: 1px solid #444444; /* Subtle border for dark mode */
+    background-color: #2a2a2a;
+    border: 1px solid #444444;
 }
 
 .dark-mode .project-preview-card:hover {
-    border-color: #444444; /* Keep original border color or make transparent */
+    border-color: #444444;
 }
 
-/* Pseudo-elements will inherit accent color, which is fine for dark mode glow */
 
 .dark-mode .project-preview-card h3 {
-    color: #e0e0e0; /* Lighter text for dark mode */
+    color: #e0e0e0;
 }
 
 .dark-mode .project-preview-card p {
-    color: #b0b0b0; /* Lighter paragraph text for dark mode */
+    color: #b0b0b0;
 }
 
-.dark-mode .details-link { /* This style can be shared with post links */
-    color: #007bff; /* Consistent accent for dark mode */
+.dark-mode .details-link {
+    color: #007bff;
 }
 
 .dark-mode .details-link:hover {
-    color: #4dabf7; /* Lighter accent for hover in dark mode */
+    color: #4dabf7;
 }
 
 /* Latest Posts Section */
-#latest-posts { /* Similar to #featured-projects */
-    padding: 4rem 2rem;
+#latest-posts {
+    padding: 4rem 2rem; /* This was original, .section class has 3rem 2rem */
     max-width: 1000px;
     margin: auto;
 }
 
-.posts-preview-grid { /* Similar to .projects-preview-grid */
+.posts-preview-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
 
-.post-preview-card { /* Similar to .project-preview-card */
+.post-preview-card {
     background-color: #ffffff;
     border-radius: 8px;
     padding: 1.5rem;
-    border: 1px solid #dddddd; /* Subtle border */
-    position: relative; /* For pseudo-elements */
-    overflow: hidden; /* To contain glow */
+    border: 1px solid #dddddd;
+    position: relative;
+    overflow: hidden;
     transition: border-color 0.3s ease;
 }
 
@@ -340,10 +345,10 @@ h1, h2, h3, h4, h5, h6 {
 .post-preview-card::after {
     content: '';
     position: absolute;
-    width: 2px; /* Lightsaber thickness */
-    height: 0; /* Initial height */
-    background-color: #007bff; /* Accent color */
-    box-shadow: 0 0 5px #007bff, 0 0 8px #007bff; /* Glow effect */
+    width: 2px;
+    height: 0;
+    background-color: #007bff;
+    box-shadow: 0 0 5px #007bff, 0 0 8px #007bff;
     opacity: 0;
     transition: height 0.3s ease-out, opacity 0.3s ease-out;
 }
@@ -360,8 +365,8 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-50%);
 }
 
-.post-preview-card:hover { /* Similar to .project-preview-card:hover */
-    border-color: #dddddd; /* Keep original border color or make transparent */
+.post-preview-card:hover {
+    border-color: #dddddd;
 }
 
 .post-preview-card:hover::before,
@@ -370,14 +375,14 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
 }
 
-.post-preview-card h3 { /* Similar to .project-preview-card h3 */
+.post-preview-card h3 {
     margin-top: 0;
     margin-bottom: 0.75rem;
     color: #333333;
-    font-weight: 700; /* Ensure bold for card titles */
+    font-weight: 700;
 }
 
-.post-preview-card p { /* Similar to .project-preview-card p */
+.post-preview-card p {
     line-height: 1.6;
     color: #555555;
     margin-bottom: 1rem;
@@ -385,15 +390,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Dark Mode for Latest Posts */
 .dark-mode .post-preview-card {
-    background-color: #2a2a2a; /* Consistent with project cards */
-    border: 1px solid #444444; /* Subtle border for dark mode */
+    background-color: #2a2a2a;
+    border: 1px solid #444444;
 }
 
 .dark-mode .post-preview-card:hover {
-    border-color: #444444; /* Keep original border color or make transparent */
+    border-color: #444444;
 }
-
-/* Pseudo-elements will inherit accent color, which is fine for dark mode glow */
 
 .dark-mode .post-preview-card h3 {
     color: #e0e0e0;
@@ -402,16 +405,15 @@ h1, h2, h3, h4, h5, h6 {
 .dark-mode .post-preview-card p {
     color: #b0b0b0;
 }
-/* .details-link dark mode styling is already covered above */
 
 /* Contact Me Section */
-#contact {
+#contact { /* Specific ID styling */
     text-align: center;
 }
 
 #contact p {
     line-height: 1.6;
-    color: #555555; /* Consistent with other paragraph text */
+    color: #555555;
     margin-bottom: 1.5rem;
 }
 
@@ -421,154 +423,92 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: 2rem;
     margin-top: 1.5rem;
-    flex-wrap: wrap; /* Ensure links wrap on smaller screens */
+    flex-wrap: wrap;
 }
 
 .contact-links a {
-    color: #007bff; /* Theme accent color */
+    color: #007bff;
     text-decoration: none;
     font-size: 1.2rem;
-    font-weight: 700; /* Use numeric weight */
+    font-weight: 700;
     transition: color 0.3s ease;
 }
 
 .contact-links a:hover {
-    color: #0056b3; /* Darker shade of accent color */
+    color: #0056b3;
     text-decoration: underline;
 }
 
 /* Dark Mode for Contact Me Section */
 .dark-mode #contact p {
-    color: #b0b0b0; /* Lighter paragraph text for dark mode */
+    color: #b0b0b0;
 }
 
 .dark-mode .contact-links a {
-    color: #007bff; /* Consistent accent for dark mode */
+    color: #007bff;
 }
 
 .dark-mode .contact-links a:hover {
-    color: #4dabf7; /* Lighter hover for dark mode links */
+    color: #4dabf7;
     text-decoration: underline;
 }
 
 /* Projects */
-.project-list {
+.project-list { /* Used on projects.html */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
 
-.project-card {
-    perspective: 1000px;
-}
-
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.project-card:hover .card-inner {
-    transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
-
-.card-front {
-    background-color: #ffffff; /* Card front light */
-    color: #333333; /* Card front text */
-}
-
-.card-back {
-    background-color: #007bff; /* Card back accent */
-    color: white;
-    transform: rotateY(180deg);
-}
-
 /* Blog Posts */
-.blog-posts {
+.blog-posts { /* Potentially for blog.html if structure changes */
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-.blog-post {
-    background: #ffffff; /* Blog post light background */
+.blog-post { /* Potentially for individual blog post items */
+    background: #ffffff;
     padding: 1.5rem;
     border-radius: 10px;
-    border: 1px solid #dddddd; /* Consistent border for light mode cards */
+    border: 1px solid #dddddd;
 }
 
 /* Footer */
-.footer {
+.footer { /* Used on projects.html, resume.html, blog.html */
     text-align: center;
     padding: 2rem;
-    background-color: #202020; /* Dark footer */
-    color: #ffffff; /* Light text on dark footer */
+    background-color: #202020;
+    color: #ffffff;
     margin-top: 4rem;
 }
 
-/* Fade-in Animations */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Ensure transition is here */
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Dark Mode Adjustments for general text and backgrounds */
-.dark-mode .section h2 {
+/* Dark Mode Adjustments for general text and backgrounds (already somewhat covered by specific dark mode styles) */
+.dark-mode .section h2 { /* For .section class as used on projects, resume, blog pages */
     color: #e0e0e0;
 }
 
-.dark-mode .project-preview-card, .dark-mode .post-preview-card {
-    background-color: #2a2a2a; /* Standard dark card background */
+/* .dark-mode .project-preview-card, .dark-mode .post-preview-card already defined */
+
+.dark-mode .card-front { /* From old project card structure, likely unused now */
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+.dark-mode .card-back { /* From old project card structure, likely unused now */
+    background-color: #007bff;
+    color: #ffffff;
 }
 
-.dark-mode .project-preview-card h3, .dark-mode .post-preview-card h3 {
-    color: #f5f5f5; /* Slightly brighter heading for cards in dark mode */
+.dark-mode .blog-post { /* For .blog-post class if used */
+    background: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444444;
 }
 
-.dark-mode .project-preview-card p, .dark-mode .post-preview-card p {
-    color: #c0c0c0; /* Lighter paragraph for cards in dark mode */
-}
-
-.dark-mode .card-front {
-    background-color: #2a2a2a; /* Dark card front */
-    color: #e0e0e0; /* Light text on dark card front */
-}
-.dark-mode .card-back { /* Ensure dark mode card-back is styled if different from light */
-    background-color: #007bff; /* Accent color */
-    color: #ffffff; /* White text */
-}
-
-.dark-mode .blog-post {
-    background: #2a2a2a; /* Dark blog post background */
-    color: #e0e0e0; /* Light text for blog post in dark mode */
-    border: 1px solid #444444; /* Consistent border for dark mode cards */
-}
-
-.dark-mode .footer {
-    background-color: #1a1a1a; /* Consistent dark background */
-    color: #f0f0f0; /* Consistent light text */
+.dark-mode .footer { /* For .footer class as used on projects, resume, blog pages */
+    background-color: #1a1a1a;
+    color: #f0f0f0;
 }
 
 
@@ -577,43 +517,43 @@ h1, h2, h3, h4, h5, h6 {
     .navbar {
         flex-direction: column;
         align-items: flex-start;
-        padding: 1rem; /* Adjusted padding for smaller screens */
+        padding: 1rem;
     }
 
     .nav-links {
         position: static;
         transform: none;
-        left: auto; /* Reset left property */
+        left: auto;
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-        margin-top: 1rem; /* Add space below logo */
-        gap: 0; /* Reset gap for vertical layout */
+        margin-top: 1rem;
+        gap: 0;
     }
 
-    .nav-links li { /* If using li elements */
+    .nav-links li {
         margin: 0.5rem 0;
-        width: 100%; /* Make links take full width for easier clicking */
+        width: 100%;
     }
     
     .nav-links a {
-        display: block; /* Make link area fill the li */
+        display: block;
         width: 100%;
-        padding: 0.5rem 0; /* Add some padding for touch targets */
+        padding: 0.5rem 0;
     }
     
-    .nav-links a::after { /* Adjust underline for stacked links */
+    .nav-links a::after {
         bottom: 0; 
     }
 
-    #toggle-dark-mode {
-        position: static;
-        margin-top: 1rem;
-        align-self: flex-start; /* Align with other stacked items */
+    #toggle-dark-mode { /* Adjust if it's part of .navbar */
+        position: static; /* Overrides absolute positioning */
+        margin-top: 1rem; /* Add space if it's stacked */
+        align-self: flex-start;
     }
 
-    .hero {
-        padding: 3rem 5%; /* Adjusted hero padding */
+    .hero { /* Affects general .hero from style.css */
+        padding: 3rem 5%;
     }
 
     .hero h1 {
@@ -629,7 +569,7 @@ h1, h2, h3, h4, h5, h6 {
         padding: 10px 20px;
     }
 
-    .section {
+    .section { /* Affects .section on projects, resume, blog */
         padding: 3rem 1rem;
     }
 
@@ -637,35 +577,220 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 1.8rem;
     }
     
-    #contact {
-        text-align: left; /* Align contact text to left on smaller screens */
+    #contact { /* Affects #contact on index.html if its styles are harmonized */
+        text-align: left;
     }
     
     .contact-links {
-        justify-content: flex-start; /* Align links to left */
+        justify-content: flex-start;
     }
 }
 
 @media (max-width: 480px) {
     .logo {
-        font-size: 1.5rem; /* Further reduce logo size */
+        font-size: 1.5rem;
     }
     
-    .hero h1 {
+    .hero h1 { /* General .hero h1 */
         font-size: 1.8rem;
     }
 
-    .hero p {
+    .hero p { /* General .hero p */
         font-size: 1rem;
     }
 
-    .section h2 {
+    .section h2 { /* .section on other pages */
         font-size: 1.6rem;
     }
 
-    /* Ensure project/post cards stack nicely if not already */
     .projects-preview-grid,
     .posts-preview-grid {
-        grid-template-columns: 1fr; /* Single column */
+        grid-template-columns: 1fr;
     }
 }
+
+/* STYLES MOVED FROM INDEX.HTML <head> - START */
+/* General Reset (Redundant with above, but part of the moved block) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles from index.html - these will likely override or supplement the body styles at the top of style.css */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #121212; /* Default dark mode background */
+  color: #e0e0e0; /* Default dark mode text color */
+  line-height: 1.6;
+  overflow-x: hidden; /* Might be useful */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode for body (from index.html) */
+body.light-mode {
+  background-color: #f5f5f5;
+  color: #121212;
+}
+
+/* Header styles from index.html (NOTE: No <header> tag currently in index.html body) */
+/* If a <header> tag is added, these will apply. */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  position: fixed; /* This is significant */
+  width: 100%;
+  z-index: 1000;
+  /* margin-left: 80px; /* This might be needed if body.has-side-nav gets padding-left */
+  /* box-sizing: border-box; /* To include padding in width */
+}
+
+header.light-mode {
+  background-color: #ffffff;
+}
+
+header h1 { /* Assumes h1 directly inside header */
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+header.light-mode h1 {
+  color: #121212;
+}
+
+/* Theme toggle styles from index.html (targets .theme-toggle class) */
+/* The button itself is #toggle-dark-mode. This class might be unused or intended for the icon inside. */
+.theme-toggle {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #ffffff; /* Default icon color for dark mode */
+  background: none;
+  border: none;
+  outline: none;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle.light-mode {
+  color: #121212; /* Icon color for light mode */
+}
+
+/* Side Nav styles from index.html (NOTE: No <nav class="side-nav"> in index.html body) */
+/* If <nav class="side-nav"> is added, these apply. */
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 80px;
+  background-color: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000; /* Ensure it's above other content, but below .navbar if .navbar is also fixed and higher z-index */
+}
+
+.side-nav.light-mode {
+  background-color: #ffffff;
+}
+
+.side-nav a {
+  text-decoration: none;
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.side-nav a:hover {
+  color: #bb86fc;
+  transform: scale(1.2);
+}
+
+.side-nav.light-mode a {
+  color: #121212;
+}
+
+.side-nav.light-mode a:hover {
+  color: #6200ea;
+}
+
+/* Hero section styles from index.html (targets .hero class, used by #home section in index.html) */
+/* This will conflict with the .hero defined earlier in style.css unless one is more specific or removed. */
+/* Giving this one higher specificity for index.html context if needed, e.g. section#home.hero */
+section#home.hero { /* Making it specific to the hero section of index.html */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #1e1e1e, #121212);
+  color: #ffffff;
+  padding: 0 20px;
+  /* margin-left: 80px; /* REMOVED */
+}
+
+section#home.hero.light-mode { /* Specificity for light mode */
+  background: linear-gradient(135deg, #ffffff, #f5f5f5);
+  color: #121212;
+}
+
+section#home.hero h2 { /* Assuming h2 within this specific hero */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+section#home.hero p { /* Assuming p within this specific hero */
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 30px;
+}
+
+section#home.hero a.cta-button { /* Assuming a.cta-button within this specific hero */
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #bb86fc;
+  color: #121212;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+section#home.hero a.cta-button:hover {
+  background-color: #9a67ea;
+  transform: scale(1.05);
+}
+
+/* Generic Section styles from index.html (applies to <section> tags in index.html) */
+/* These will apply to #about, #skills, #featured-projects, #latest-posts, #contact in index.html */
+/* These conflict with .section class styling. index.html sections do not have .section class. */
+/* To avoid conflict, ensure index.html sections that need centering/max-width get the .section class. */
+/* For now, these are the original styles for index.html's <section> tags. */
+/* body > main > section rule removed as index.html sections now use the .section class for styling */
+
+/* Footer styles from index.html (applies to <footer> tag in index.html) */
+/* This will conflict with .footer class styling if the footer tag also has .footer class. */
+/* Assuming this is for the main page footer if it's different. */
+body > main > footer { /* Making it specific to the footer in index.html's main flow */
+  text-align: center;
+  padding: 20px;
+  background-color: #1e1e1e;
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  /* margin-left: 80px; /* REMOVED */
+}
+
+body > main > footer.light-mode { /* Specificity for light mode */
+  background-color: #ffffff;
+  color: #121212;
+}
+
+/* STYLES MOVED FROM INDEX.HTML <head> - END */

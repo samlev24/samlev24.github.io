@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sam Lev | Projects</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
@@ -19,53 +20,33 @@
     <button id="toggle-dark-mode">🌙</button>
 </nav>
 
-<section class="section fade-in">
+<section class="section" data-aos="fade-up">
     <h2>My Projects</h2>
 
     <div class="project-list">
 
-        <div class="project-card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>Buffer Overflow Exploitation</h3>
-                </div>
-                <div class="card-back">
-                    <p>Developed custom Linux exploit overwriting EIP and bypassing protections.</p>
-                </div>
-            </div>
+        <div class="project-preview-card" data-aos="fade-up" data-aos-delay="50">
+            <h3>Buffer Overflow Exploitation</h3>
+            <p>Developed custom Linux exploit overwriting EIP and bypassing protections.</p>
+            <a href="#" class="details-link">Learn More</a>
         </div>
 
-        <div class="project-card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>Linux Firewall with pfSense</h3>
-                </div>
-                <div class="card-back">
-                    <p>Built network defense using VirtualBox, pfSense firewall, and Snort IDS.</p>
-                </div>
-            </div>
+        <div class="project-preview-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>Linux Firewall with pfSense</h3>
+            <p>Built network defense using VirtualBox, pfSense firewall, and Snort IDS.</p>
+            <a href="#" class="details-link">Learn More</a>
         </div>
 
-        <div class="project-card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>Startup Django App</h3>
-                </div>
-                <div class="card-back">
-                    <p>Led SCRUM team delivering Django app hosted on Heroku with AWS RDS database.</p>
-                </div>
-            </div>
+        <div class="project-preview-card" data-aos="fade-up" data-aos-delay="150">
+            <h3>Startup Django App</h3>
+            <p>Led SCRUM team delivering Django app hosted on Heroku with AWS RDS database.</p>
+            <a href="#" class="details-link">Learn More</a>
         </div>
 
-        <div class="project-card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>MyFitPlate Swift App</h3>
-                </div>
-                <div class="card-back">
-                    <p>Collaborated on front-end Swift development based on UX designs and Agile sprints.</p>
-                </div>
-            </div>
+        <div class="project-preview-card" data-aos="fade-up" data-aos-delay="200">
+            <h3>MyFitPlate Swift App</h3>
+            <p>Collaborated on front-end Swift development based on UX designs and Agile sprints.</p>
+            <a href="#" class="details-link">Learn More</a>
         </div>
 
     </div>
@@ -75,6 +56,7 @@
     <p>&copy; 2025 Samuel Levshteyn. All rights reserved.</p>
 </footer>
 
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="script.js"></script>
 
 </body>

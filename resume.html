@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sam Lev | Resume</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
@@ -19,17 +20,18 @@
     <button id="toggle-dark-mode">🌙</button>
 </nav>
 
-<section class="section fade-in">
+<section class="section" data-aos="fade-up">
     <h2>My Resume</h2>
-    <p><a href="SamLevResume.pdf" download>📄 Download My Resume (PDF)</a></p>
+    <p class="resume-download-link" data-aos="fade-up" data-aos-delay="50"><a href="SamLevResume.pdf" download>📄 Download My Resume (PDF)</a></p>
 
-    <iframe src="SamLevResume.pdf" width="100%" height="600px" style="border: none;"></iframe>
+    <iframe src="SamLevResume.pdf" width="100%" height="600px" style="border: none;" data-aos="fade-up" data-aos-delay="100"></iframe>
 </section>
 
 <footer class="footer">
     <p>&copy; 2025 Samuel Levshteyn. All rights reserved.</p>
 </footer>
 
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="script.js"></script>
 
 </body>
