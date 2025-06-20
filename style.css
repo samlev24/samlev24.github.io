@@ -4,11 +4,13 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif; /* Updated font */
-    background-color: #f0f0f0; /* Updated background color */
-    color: #333333; /* Updated text color */
+    background-color: #f0f0f0; /* Default light mode background */
+    color: #333333; /* Default light mode text color */
+    line-height: 1.6; /* Added from moved styles */
     scroll-behavior: smooth;
     cursor: none; /* Hide default cursor */
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added from moved styles */
 }
 
 .cursor-dot,
@@ -18,7 +20,6 @@ body {
   left: 0;
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
 }
 
 /* Dot cursor */
@@ -27,16 +28,22 @@ body {
   height: 16px;
   background-color: white;
   border-radius: 50%;
+  transition: background-color 0.3s ease; /* Smooth transition for color change */
+}
+
+.cursor-dot.cursor-dark {
+  background-color: black;
 }
 
 /* Glowing trail */
 .cursor-glow {
   width: 40px;
   height: 40px;
-  background: rgba(0, 123, 255, 0.2);
+  /* background: rgba(0, 123, 255, 0.2); */ /* Replaced by box-shadow */
+  box-shadow: 0 0 15px 5px rgba(0, 123, 255, 0.3), 0 0 25px 10px rgba(0, 123, 255, 0.2);
   border-radius: 50%;
-  filter: blur(8px);
-  transition: transform 0.1s ease-out;
+  filter: blur(8px); /* Consider if blur is still needed or if shadow is enough */
+  transition: transform 0.1s ease-out; /* This will be changed to left/top transition in JS part */
 }
 
 /* Navbar */
@@ -102,12 +109,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Dark Mode Adjustments */
-.dark-mode {
+/* This is now the primary dark mode definition for the body */
+body.dark-mode {
     background-color: #121212; /* Dark mode background */
-    color: #e0e0e0;
+    color: #e0e0e0; /* Dark mode text color */
 }
 
-.dark-mode .navbar {
+/* Ensure .dark-mode rules are prefixed with body if they target general elements,
+   or ensure they are specific enough not to need it.
+   For example, .dark-mode .navbar is fine. */
+body.dark-mode .navbar {
     background-color: #1f1f1f; /* Slightly different dark for navbar */
 }
 
@@ -133,7 +144,13 @@ h1, h2, h3, h4, h5, h6 {
 #toggle-dark-mode {
     position: absolute;
     right: 2rem;
-    /* Styles for the button itself, like background, color, border, are in the moved styles under .theme-toggle */
+    background: none; /* Remove default button background */
+    border: none; /* Remove default button border */
+    padding: 0; /* Adjust if icon needs different spacing */
+    /* font-size and color are expected to be handled by .theme-toggle if applied,
+       or can be set here if #toggle-dark-mode does not always have .theme-toggle */
+    /* Forcing cursor to none as per global style, custom cursor will be active */
+    cursor: none !important;
 }
 
 /* Hero Section (General - from style.css, conflicts with index.html internal .hero) */
@@ -189,6 +206,18 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #e0e0e0;
     color: #0056b3;
 }
+
+/* Dark mode for general .cta-button */
+body.dark-mode .cta-button {
+    background-color: #007bff; /* Primary color for dark mode button background */
+    color: #ffffff; /* Text color for dark mode button */
+}
+
+body.dark-mode .cta-button:hover {
+    background-color: #0056b3; /* Darker shade for hover */
+    color: #eeeeee;
+}
+
 
 /* Section Styles */
 .section { /* Used by projects, resume, blog pages */
@@ -506,40 +535,45 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Footer */
-.footer { /* Used on projects.html, resume.html, blog.html */
+/* Unified footer styling. Assumes main page footer is <footer> tag. */
+footer {
     text-align: center;
-    padding: 2rem;
-    background-color: #202020;
-    color: #ffffff;
-    margin-top: 4rem;
+    padding: 20px; /* From body > main > footer */
+    font-size: 0.9rem; /* From body > main > footer */
+    margin-top: 4rem; /* From .footer rule */
+    background-color: #ffffff; /* Light mode default */
+    color: #121212; /* Light mode default */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode footer {
+    background-color: #1e1e1e; /* Dark mode */
+    color: #b0b0b0; /* Dark mode */
 }
 
 /* Dark Mode Adjustments for general text and backgrounds (already somewhat covered by specific dark mode styles) */
-.dark-mode .section h2 { /* For .section class as used on projects, resume, blog pages */
+body.dark-mode .section h2 { /* For .section class as used on projects, resume, blog pages */
     color: #e0e0e0;
 }
 
-/* .dark-mode .project-preview-card, .dark-mode .post-preview-card already defined */
+/* .dark-mode .project-preview-card, .dark-mode .post-preview-card already defined, ensure they use body.dark-mode */
 
-.dark-mode .card-front { /* From old project card structure, likely unused now */
+body.dark-mode .card-front { /* From old project card structure, likely unused now */
     background-color: #2a2a2a;
     color: #e0e0e0;
 }
-.dark-mode .card-back { /* From old project card structure, likely unused now */
+body.dark-mode .card-back { /* From old project card structure, likely unused now */
     background-color: #007bff;
     color: #ffffff;
 }
 
-.dark-mode .blog-post { /* For .blog-post class if used */
+body.dark-mode .blog-post { /* For .blog-post class if used */
     background: #2a2a2a;
     color: #e0e0e0;
     border: 1px solid #444444;
 }
 
-.dark-mode .footer { /* For .footer class as used on projects, resume, blog pages */
-    background-color: #1a1a1a;
-    color: #f0f0f0;
-}
+/* .dark-mode .footer rule is removed and incorporated above */
 
 
 /* Responsive Media Queries */
@@ -641,152 +675,164 @@ h1, h2, h3, h4, h5, h6 {
 
 /* STYLES MOVED FROM INDEX.HTML <head> - START */
 /* General Reset (Redundant with above, but part of the moved block) */
+/* Keeping this reset as it's harmless and was part of the consolidation */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styles from index.html - these will likely override or supplement the body styles at the top of style.css */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #121212; /* Default dark mode background */
-  color: #e0e0e0; /* Default dark mode text color */
-  line-height: 1.6;
-  overflow-x: hidden; /* Might be useful */
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Light Mode for body (from index.html) */
-body.light-mode {
-  background-color: #f5f5f5;
-  color: #121212;
-}
+/* Body styles from index.html - REMOVED as they are consolidated above */
+/* body { ... } REMOVED */
+/* body.light-mode { ... } REMOVED */
 
 /* Header styles from index.html (NOTE: No <header> tag currently in index.html body) */
 /* If a <header> tag is added, these will apply. */
+/* Default (Light Mode) Header Style */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: #1e1e1e;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  background-color: #ffffff; /* Light mode background */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Softer shadow for light mode */
   position: fixed; /* This is significant */
   width: 100%;
   z-index: 1000;
-  /* margin-left: 80px; /* This might be needed if body.has-side-nav gets padding-left */
-  /* box-sizing: border-box; /* To include padding in width */
+  /* margin-left: 80px; */
+  /* box-sizing: border-box; */
 }
 
-header.light-mode {
-  background-color: #ffffff;
+/* Dark Mode Header Style */
+body.dark-mode header {
+  background-color: #1e1e1e; /* Dark mode background */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Default (Light Mode) Header H1 Style */
 header h1 { /* Assumes h1 directly inside header */
   font-size: 1.8rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #121212; /* Light mode text color */
 }
 
-header.light-mode h1 {
-  color: #121212;
+/* Dark Mode Header H1 Style */
+body.dark-mode header h1 {
+  color: #ffffff; /* Dark mode text color */
 }
 
 /* Theme toggle styles from index.html (targets .theme-toggle class) */
-/* The button itself is #toggle-dark-mode. This class might be unused or intended for the icon inside. */
+/* The button itself is #toggle-dark-mode. */
+/* Default (Light Mode) .theme-toggle Style */
 .theme-toggle {
   font-size: 1.5rem;
-  color: #ffffff; /* Default icon color for dark mode */
+  color: #121212; /* Icon color for light mode */
   background: none;
   border: none;
   outline: none;
   transition: color 0.3s ease;
 }
 
-.theme-toggle.light-mode {
-  color: #121212; /* Icon color for light mode */
+/* Dark Mode .theme-toggle Style */
+body.dark-mode .theme-toggle {
+  color: #ffffff; /* Icon color for dark mode */
 }
 
 /* Side Nav styles from index.html (NOTE: No <nav class="side-nav"> in index.html body) */
 /* If <nav class="side-nav"> is added, these apply. */
+/* Default (Light Mode) .side-nav Style */
 .side-nav {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 80px;
-  background-color: #1e1e1e;
+  background-color: #ffffff; /* Light mode background */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Softer shadow for light mode */
+  z-index: 1000;
+}
+
+/* Dark Mode .side-nav Style */
+body.dark-mode .side-nav {
+  background-color: #1e1e1e; /* Dark mode background */
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-  z-index: 1000; /* Ensure it's above other content, but below .navbar if .navbar is also fixed and higher z-index */
 }
 
-.side-nav.light-mode {
-  background-color: #ffffff;
-}
-
+/* Default (Light Mode) .side-nav a Style */
 .side-nav a {
   text-decoration: none;
-  color: #e0e0e0;
+  color: #121212; /* Light mode text color */
   font-size: 1.2rem;
   margin: 20px 0;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
+/* Default (Light Mode) .side-nav a:hover Style */
 .side-nav a:hover {
-  color: #bb86fc;
+  color: #6200ea; /* Light mode hover color */
   transform: scale(1.2);
 }
 
-.side-nav.light-mode a {
-  color: #121212;
+/* Dark Mode .side-nav a Style */
+body.dark-mode .side-nav a {
+  color: #e0e0e0; /* Dark mode text color */
 }
 
-.side-nav.light-mode a:hover {
-  color: #6200ea;
+/* Dark Mode .side-nav a:hover Style */
+body.dark-mode .side-nav a:hover {
+  color: #bb86fc; /* Dark mode hover color */
 }
 
 /* Hero section styles from index.html (targets .hero class, used by #home section in index.html) */
 /* This will conflict with the .hero defined earlier in style.css unless one is more specific or removed. */
-/* Giving this one higher specificity for index.html context if needed, e.g. section#home.hero */
-section#home.hero { /* Making it specific to the hero section of index.html */
+/* Default (Light Mode) section#home.hero Style */
+section#home.hero {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(135deg, #1e1e1e, #121212);
-  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff, #f5f5f5); /* Light mode background */
+  color: #121212; /* Light mode text color */
   padding: 0 20px;
-  /* margin-left: 80px; /* REMOVED */
 }
 
-section#home.hero.light-mode { /* Specificity for light mode */
-  background: linear-gradient(135deg, #ffffff, #f5f5f5);
-  color: #121212;
+/* Dark Mode section#home.hero Style */
+body.dark-mode section#home.hero {
+  background: linear-gradient(135deg, #1e1e1e, #121212); /* Dark mode background */
+  color: #ffffff; /* Dark mode text color */
 }
 
-section#home.hero h2 { /* Assuming h2 within this specific hero */
+/* Default (Light Mode) section#home.hero h2 Style */
+section#home.hero h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  /* Color is inherited from section#home.hero */
 }
 
-section#home.hero p { /* Assuming p within this specific hero */
+/* Dark Mode section#home.hero h2 Style - color will be inherited, so no specific rule needed unless it differs */
+
+/* Default (Light Mode) section#home.hero p Style */
+section#home.hero p {
   font-size: 1.2rem;
   max-width: 600px;
   margin-bottom: 30px;
+  /* Color is inherited */
 }
 
-section#home.hero a.cta-button { /* Assuming a.cta-button within this specific hero */
+/* Dark Mode section#home.hero p Style - color will be inherited */
+
+/* Default (Light Mode) section#home.hero a.cta-button Style */
+section#home.hero a.cta-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #bb86fc;
-  color: #121212;
+  background-color: #6200ea; /* Example: Light mode CTA primary color */
+  color: #ffffff; /* Text on light mode CTA */
   text-decoration: none;
   font-weight: 600;
   border-radius: 5px;
@@ -794,8 +840,18 @@ section#home.hero a.cta-button { /* Assuming a.cta-button within this specific h
 }
 
 section#home.hero a.cta-button:hover {
-  background-color: #9a67ea;
+  background-color: #3700b3; /* Darker shade for hover on light mode CTA */
   transform: scale(1.05);
+}
+
+/* Dark Mode section#home.hero a.cta-button Style */
+body.dark-mode section#home.hero a.cta-button {
+  background-color: #bb86fc; /* Dark mode CTA primary color */
+  color: #121212; /* Text on dark mode CTA */
+}
+
+body.dark-mode section#home.hero a.cta-button:hover {
+  background-color: #9a67ea; /* Darker shade for hover on dark mode CTA */
 }
 
 /* Generic Section styles from index.html (applies to <section> tags in index.html) */
@@ -806,20 +862,8 @@ section#home.hero a.cta-button:hover {
 /* body > main > section rule removed as index.html sections now use the .section class for styling */
 
 /* Footer styles from index.html (applies to <footer> tag in index.html) */
-/* This will conflict with .footer class styling if the footer tag also has .footer class. */
-/* Assuming this is for the main page footer if it's different. */
-body > main > footer { /* Making it specific to the footer in index.html's main flow */
-  text-align: center;
-  padding: 20px;
-  background-color: #1e1e1e;
-  color: #b0b0b0;
-  font-size: 0.9rem;
-  /* margin-left: 80px; /* REMOVED */
-}
-
-body > main > footer.light-mode { /* Specificity for light mode */
-  background-color: #ffffff;
-  color: #121212;
-}
+/* These are now REMOVED as they are consolidated into the new footer rules above */
+/* body > main > footer { ... } REMOVED */
+/* body > main > footer.light-mode { ... } REMOVED */
 
 /* STYLES MOVED FROM INDEX.HTML <head> - END */
