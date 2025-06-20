@@ -35,15 +35,23 @@ body {
   background-color: black;
 }
 
+@keyframes subtle-glow-pulse {
+  0% { box-shadow: 0 0 20px rgba(0, 123, 255, 0.4); }
+  50% { box-shadow: 0 0 25px 5px rgba(0, 123, 255, 0.5); }
+  100% { box-shadow: 0 0 20px rgba(0, 123, 255, 0.4); }
+}
+
 /* Glowing trail */
 .cursor-glow {
+  /* Retain existing position, pointer-events, z-index from the .cursor-dot, .cursor-glow shared rule */
   width: 40px;
   height: 40px;
-  /* background: rgba(0, 123, 255, 0.2); */ /* Replaced by box-shadow */
-  box-shadow: 0 0 15px 5px rgba(0, 123, 255, 0.3), 0 0 25px 10px rgba(0, 123, 255, 0.2);
+  background-color: rgba(0, 123, 255, 0.25);
   border-radius: 50%;
-  filter: blur(8px); /* Consider if blur is still needed or if shadow is enough */
-  transition: transform 0.1s ease-out; /* This will be changed to left/top transition in JS part */
+  filter: blur(10px);
+  box-shadow: none; /* Clear static box-shadow, animation will provide it */
+  animation: subtle-glow-pulse 2.5s infinite ease-in-out;
+  /* transition: transform 0.1s ease-out; */ /* Removed as positioning is via top/left and glow is animated */
 }
 
 /* Navbar */
@@ -149,8 +157,8 @@ body.dark-mode .navbar {
     padding: 0; /* Adjust if icon needs different spacing */
     /* font-size and color are expected to be handled by .theme-toggle if applied,
        or can be set here if #toggle-dark-mode does not always have .theme-toggle */
-    /* Forcing cursor to none as per global style, custom cursor will be active */
-    cursor: none !important;
+    /* Removing specific cursor rule here to allow default button behavior for clickability,
+       while visual cursor style should still be 'none' due to general button rule */
 }
 
 /* Hero Section (General - from style.css, conflicts with index.html internal .hero) */
