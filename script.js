@@ -73,3 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
         once: true, // whether animation should happen only once - while scrolling down
     });
 });
+
+const dot = document.querySelector('.cursor-dot');
+const glow = document.querySelector('.cursor-glow');
+
+document.addEventListener('mousemove', e => {
+  const { clientX: x, clientY: y } = e;
+  dot.style.transform = `translate(${x}px, ${y}px)`;
+  glow.style.transform = `translate(${x}px, ${y}px)`;
+});

@@ -1,132 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Dark Theme</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Dark Theme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<!-- Note: The side-nav element defined in the moved CSS is not present in index.html body.
+    <!-- Note: The side-nav element defined in the moved CSS is not present in index.html body.
      If it were, it would be <nav class="side-nav">...</nav> here.
      The main content will now expand to full width unless specific classes from style.css
      (like .section for centering) are applied to the <section> tags below.
 -->
-<nav class="navbar">
-    <div class="logo">Samuel Levshteyn</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="blog.html">Blog</a></li>
-    </ul>
-    <button id="toggle-dark-mode">🌙</button>
-</nav>
-<!-- Note: The side-nav element defined in the moved CSS is not present in index.html body.
+    <div class="cursor-dot"></div>
+    <div class="cursor-glow"></div>
+    <nav class="navbar">
+        <div class="logo">Samuel Levshteyn</div>
+        <ul class="nav-links">
+            <li><a href="">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <button id="toggle-dark-mode">🌙</button>
+    </nav>
+    <!-- Note: The side-nav element defined in the moved CSS is not present in index.html body.
      If it were, it would be <nav class="side-nav">...</nav> here.
      The main content will now expand to full width unless specific classes from style.css
      (like .section for centering) are applied to the <section> tags below.
 -->
-<section id="home" class="hero" data-aos="fade-in" data-aos-delay="100">
-    <h1>Hi, I'm Sam.</h1>
-    <p><span id="typewriter"></span></p>
-    <a href="projects.html" class="cta-button">View My Work</a>
-</section>
+    <section id="home" class="hero" data-aos="fade-in" data-aos-delay="100">
+        <h1>Hi, I'm Sam.</h1>
+        <p><span id="typewriter"></span></p>
+        <a href="projects.html" class="cta-button">View My Work</a>
+    </section>
 
-  <section id="about" class="section" data-aos="fade-up">
-    <h2>About Us</h2>
-    <p>We are passionate about creating beautiful and functional websites that leave a lasting impression.</p>
-  </section>
+    <section id="about" class="section" data-aos="fade-up">
+        <h2>About Us</h2>
+        <p>We are passionate about creating beautiful and functional websites that leave a lasting impression.</p>
+    </section>
 
-<section id="skills" class="section" data-aos="fade-up">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-        <div class="skill" data-aos="fade-up" data-aos-delay="50">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-            <p>Python</p>
+    <section id="skills" class="section" data-aos="fade-up">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill" data-aos="fade-up" data-aos-delay="50">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                <p>Python</p>
+            </div>
+            <div class="skill" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+                <p>Java</p>
+            </div>
+            <div class="skill" data-aos="fade-up" data-aos-delay="150">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
+                <p>HTML</p>
+            </div>
+            <div class="skill" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+                <p>CSS</p>
+            </div>
+            <div class="skill" data-aos="fade-up" data-aos-delay="250">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript" />
+                <p>JavaScript</p>
+            </div>
+            <div class="skill" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
+                <p>Linux</p>
+            </div>
+            <div class="skill" data-aos="fade-up" data-aos-delay="350">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+                <p>GitHub</p>
+            </div>
         </div>
-        <div class="skill" data-aos="fade-up" data-aos-delay="100">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
-            <p>Java</p>
-        </div>
-        <div class="skill" data-aos="fade-up" data-aos-delay="150">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
-            <p>HTML</p>
-        </div>
-        <div class="skill" data-aos="fade-up" data-aos-delay="200">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
-            <p>CSS</p>
-        </div>
-        <div class="skill" data-aos="fade-up" data-aos-delay="250">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
-            <p>JavaScript</p>
-        </div>
-        <div class="skill" data-aos="fade-up" data-aos-delay="300">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
-            <p>Linux</p>
-        </div>
-        <div class="skill" data-aos="fade-up" data-aos-delay="350">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
-            <p>GitHub</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="featured-projects" class="section" data-aos="fade-up"> /* Already has .section, this is fine */
-    <h2>Featured Projects</h2>
-    <div class="projects-preview-grid">
-        <div class="project-preview-card" data-aos="fade-up" data-aos-delay="50">
-            <h3>Project Alpha</h3>
-            <p>A short description of Project Alpha highlighting its key features and technologies used.</p>
-            <a href="projects.html" class="details-link">Learn More</a>
+    <section id="featured-projects" class="section" data-aos="fade-up">
+        <h2>Featured Projects</h2>
+        <div class="projects-preview-grid">
+            <div class="project-preview-card" data-aos="fade-up" data-aos-delay="50">
+                <h3>Project Alpha</h3>
+                <p>A short description of Project Alpha highlighting its key features and technologies used.</p>
+                <a href="projects.html" class="details-link">Learn More</a>
+            </div>
+            <div class="project-preview-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>Project Beta</h3>
+                <p>A short description of Project Beta highlighting its key features and technologies used.</p>
+                <a href="projects.html" class="details-link">Learn More</a>
+            </div>
+            <div class="project-preview-card" data-aos="fade-up" data-aos-delay="150">
+                <h3>Project Gamma</h3>
+                <p>A short description of Project Gamma highlighting its key features and technologies used.</p>
+                <a href="projects.html" class="details-link">Learn More</a>
+            </div>
         </div>
-        <div class="project-preview-card" data-aos="fade-up" data-aos-delay="100">
-            <h3>Project Beta</h3>
-            <p>A short description of Project Beta highlighting its key features and technologies used.</p>
-            <a href="projects.html" class="details-link">Learn More</a>
-        </div>
-        <div class="project-preview-card" data-aos="fade-up" data-aos-delay="150">
-            <h3>Project Gamma</h3>
-            <p>A short description of Project Gamma highlighting its key features and technologies used.</p>
-            <a href="projects.html" class="details-link">Learn More</a>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="latest-posts" class="section" data-aos="fade-up"> /* Already has .section, this is fine */
-    <h2>Latest Posts</h2>
-    <div class="posts-preview-grid">
-        <div class="post-preview-card" data-aos="fade-up" data-aos-delay="50">
-            <h3>Understanding XSS Attacks</h3>
-            <p>A quick overview of Cross-Site Scripting vulnerabilities and how to prevent them...</p>
-            <a href="blog.html" class="details-link">Read More</a>
+    <section id="latest-posts" class="section" data-aos="fade-up">
+        <h2>Latest Posts</h2>
+        <div class="posts-preview-grid">
+            <div class="post-preview-card" data-aos="fade-up" data-aos-delay="50">
+                <h3>Understanding XSS Attacks</h3>
+                <p>A quick overview of Cross-Site Scripting vulnerabilities and how to prevent them...</p>
+                <a href="blog.html" class="details-link">Read More</a>
+            </div>
+            <div class="post-preview-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>My Journey into Cybersecurity</h3>
+                <p>Sharing my experiences and learnings as I delve deeper into the world of cybersecurity...</p>
+                <a href="blog.html" class="details-link">Read More</a>
+            </div>
         </div>
-        <div class="post-preview-card" data-aos="fade-up" data-aos-delay="100">
-            <h3>My Journey into Cybersecurity</h3>
-            <p>Sharing my experiences and learnings as I delve deeper into the world of cybersecurity...</p>
-            <a href="blog.html" class="details-link">Read More</a>
+    </section>
+
+    <section id="contact" class="section" data-aos="fade-up">
+        <h2>Get In Touch</h2>
+        <p>I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out!</p>
+        <div class="contact-links">
+            <a href="mailto:slevshteyn.com" data-aos="fade-up" data-aos-delay="50">samlevshteyn@gmail.com</a>
+            <a href="https://github.com/samlev24" target="_blank" data-aos="fade-up" data-aos-delay="100">GitHub</a>
+            <a href="https://linkedin.com/in/samuel-levshteyn" target="_blank" data-aos="fade-up"
+                data-aos-delay="150">LinkedIn</a>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="contact" class="section" data-aos="fade-up"> /* Already has .section, this is fine */
-    <h2>Get In Touch</h2>
-    <p>I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out!</p>
-    <div class="contact-links">
-        <a href="mailto:samlevshteyn@gmail.com" data-aos="fade-up" data-aos-delay="50">samlevshteyn@gmail.com</a>
-        <a href="https://github.com/samlevshteyn" target="_blank" data-aos="fade-up" data-aos-delay="100">GitHub</a>
-        <a href="https://linkedin.com/in/samuel-levshteyn" target="_blank" data-aos="fade-up" data-aos-delay="150">LinkedIn</a>
-    </div>
-</section>
+    <footer>
+        <p>&copy; 2025 Samuel Levshteyn. All rights reserved.</p>
+    </footer>
 
-  <footer>
-    <p>&copy; 2025 My Dark Website. All rights reserved.</p>
-  </footer>
-
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <!-- Removed unused inline toggleTheme() function. Functionality is handled by script.js -->
-  <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Removed unused inline toggleTheme() function. Functionality is handled by script.js -->
+    <script src="script.js"></script>
 </body>
+
 </html>
