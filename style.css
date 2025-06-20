@@ -7,7 +7,7 @@ body {
     background-color: #f0f0f0; /* Updated background color */
     color: #333333; /* Updated text color */
     scroll-behavior: smooth;
-    cursor: none; /* Hide default cursor */
+    cursor: none !important; /* Hide default cursor */
     overflow-x: hidden;
 }
 
