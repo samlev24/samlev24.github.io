@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sam Lev | Blog</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Samar Lev — Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="cursor-dot"></div>
+  <div class="cursor-glow"></div>
+  <div id="grid-overlay" aria-hidden="true"></div>
+  <div id="palette" aria-hidden="true">
+    <input id="palette-input" type="text" placeholder="Jump to… (type to filter)" autofocus />
+    <ul id="palette-results"></ul>
+  </div>
 
-<nav class="navbar">
-    <div class="logo">Samuel Levshteyn</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="blog.html">Blog</a></li>
-    </ul>
-    <button id="toggle-dark-mode">🌙</button>
-</nav>
+  <aside class="sidebar">
+    <a class="brand" href="index.html">Samar Lev</a>
+    <nav class="menu">
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a class="active" href="blog.html">Blog</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="social">
+        <a href="mailto:sam.lev@outlook.com">Email</a>
+        <a href="https://github.com/samlev24" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+      <button id="theme-toggle" class="icon-btn">☾</button>
+    </div>
+  </aside>
 
-<section class="section fade-in">
-    <h2>Blog</h2>
-    <p>Coming soon — sharing thoughts, lessons, and tips about cybersecurity, projects, and learning journeys!</p>
-</section>
+  <main class="container">
+    <header class="page-header">
+      <h1>Blog</h1>
+      <p class="muted">Occasional notes on security, UI, and learning.</p>
+    </header>
 
-<footer class="footer">
-    <p>&copy; 2025 Samuel Levshteyn. All rights reserved.</p>
-</footer>
+    <article class="post">
+      <h2>SIEM Triage Notes: What I Wish I Practiced Earlier</h2>
+      <p class="muted small">Draft • Aug 2025</p>
+      <p>Signals, context, and why “weird but benign” is your most common outcome.</p>
+    </article>
 
-<script src="script.js"></script>
+    <article class="post">
+      <h2>Grayscale by Default</h2>
+      <p class="muted small">Draft • Aug 2025</p>
+      <p>Designing for contrast, calm, and accessibility.</p>
+    </article>
+  </main>
 
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,81 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sam Lev | Projects</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Samar Lev — Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="cursor-dot"></div>
+  <div class="cursor-glow"></div>
+  <div id="grid-overlay" aria-hidden="true"></div>
+  <div id="palette" aria-hidden="true">
+    <input id="palette-input" type="text" placeholder="Jump to… (type to filter)" autofocus />
+    <ul id="palette-results"></ul>
+  </div>
 
-<nav class="navbar">
-    <div class="logo">Samuel Levshteyn</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="blog.html">Blog</a></li>
-    </ul>
-    <button id="toggle-dark-mode">🌙</button>
-</nav>
-
-<section class="section fade-in">
-    <h2>My Projects</h2>
-
-    <div class="project-list">
-
-        <div class="project-card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>Buffer Overflow Exploitation</h3>
-                </div>
-                <div class="card-back">
-                    <p>Developed custom Linux exploit overwriting EIP and bypassing protections.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>Linux Firewall with pfSense</h3>
-                </div>
-                <div class="card-back">
-                    <p>Built network defense using VirtualBox, pfSense firewall, and Snort IDS.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>Startup Django App</h3>
-                </div>
-                <div class="card-back">
-                    <p>Led SCRUM team delivering Django app hosted on Heroku with AWS RDS database.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3>MyFitPlate Swift App</h3>
-                </div>
-                <div class="card-back">
-                    <p>Collaborated on front-end Swift development based on UX designs and Agile sprints.</p>
-                </div>
-            </div>
-        </div>
-
+  <aside class="sidebar">
+    <a class="brand" href="index.html">Samar Lev</a>
+    <nav class="menu">
+      <a class="active" href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="social">
+        <a href="mailto:sam.lev@outlook.com">Email</a>
+        <a href="https://github.com/samlev24" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+      <button id="theme-toggle" class="icon-btn">☾</button>
     </div>
-</section>
+  </aside>
 
-<footer class="footer">
-    <p>&copy; 2025 Samuel Levshteyn. All rights reserved.</p>
-</footer>
+  <main class="container">
+    <header class="page-header">
+      <h1>Projects</h1>
+      <p class="muted">A few things I’ve shipped or am tinkering with.</p>
+    </header>
 
-<script src="script.js"></script>
+    <section class="section" id="api-kit">
+      <h2 class="section-title">API Hardening Kit</h2>
+      <p class="muted">FastAPI middlewares for auth, rate-limits, CORS, input validation, and audit logging. Includes
+        starter Terraform for secrets + VPC, and a small load test harness.</p>
+      <ul class="bullets">
+        <li>OWASP Top 10 mapping</li>
+        <li>Opinionated defaults, minimal knobs</li>
+        <li>GitHub Actions workflow for tests + image signing</li>
+      </ul>
+    </section>
 
+    <section class="section" id="siem-lab">
+      <h2 class="section-title">Home SIEM Lab</h2>
+      <p class="muted">Ingest Windows event logs, web/app logs, and network telemetry; author rules; rehearse triage.</p>
+      <ul class="bullets">
+        <li>Elastic (or OpenSearch) ingest + dashboards</li>
+        <li>Curated detections to practice signal vs noise</li>
+        <li>Notebook of cases + lessons learned</li>
+      </ul>
+    </section>
+
+    <section class="section" id="ui-system">
+      <h2 class="section-title">Minimal UI System</h2>
+      <p class="muted">Grayscale component set with motion and great focus states. Built with vanilla CSS + a tiny
+        utilities layer.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

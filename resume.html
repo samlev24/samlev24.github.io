@@ -1,36 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sam Lev | Resume</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Samar Lev — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="cursor-dot"></div>
+  <div class="cursor-glow"></div>
+  <div id="grid-overlay" aria-hidden="true"></div>
+  <div id="palette" aria-hidden="true">
+    <input id="palette-input" type="text" placeholder="Jump to… (type to filter)" autofocus />
+    <ul id="palette-results"></ul>
+  </div>
 
-<nav class="navbar">
-    <div class="logo">Samuel Levshteyn</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="blog.html">Blog</a></li>
-    </ul>
-    <button id="toggle-dark-mode">🌙</button>
-</nav>
+  <aside class="sidebar">
+    <a class="brand" href="index.html">Samar Lev</a>
+    <nav class="menu">
+      <a href="projects.html">Projects</a>
+      <a class="active" href="resume.html">Resume</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#about">About</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="social">
+        <a href="mailto:sam.lev@outlook.com">Email</a>
+        <a href="https://github.com/samlev24" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+      <button id="theme-toggle" class="icon-btn">☾</button>
+    </div>
+  </aside>
 
-<section class="section fade-in">
-    <h2>My Resume</h2>
-    <p><a href="SamLevResume.pdf" download>📄 Download My Resume (PDF)</a></p>
+  <main class="container">
+    <header class="page-header">
+      <h1>Resume</h1>
+      <p class="muted">One-page snapshot. Download the PDF or skim highlights.</p>
+      <div class="actions">
+        <a class="btn" href="SamLevResume.pdf" download>Download PDF</a>
+      </div>
+    </header>
 
-    <iframe src="SamLevResume.pdf" width="100%" height="600px" style="border: none;"></iframe>
-</section>
+    <section class="section">
+      <h2 class="section-title">Highlights</h2>
+      <ul class="bullets">
+        <li>Built API hardening kit with audit logs + signed builds</li>
+        <li>Created a home SIEM lab for alert triage practice</li>
+        <li>Designed minimal grayscale UI component set</li>
+      </ul>
+    </section>
+  </main>
 
-<footer class="footer">
-    <p>&copy; 2025 Samuel Levshteyn. All rights reserved.</p>
-</footer>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
